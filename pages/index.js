@@ -1,81 +1,77 @@
 import Head from 'next/head'
+import Link from 'next/link'
+
+import { useState } from 'react';
+
+
 
 export default function Home() {
+
+  const [store, setStore] = useState([]);
+
+  function storehandeler(event){
+
+    event.preventDefault();
+
+    let store= {
+      location: event.target.location.value,
+      minCus:event.target.MinCPH.value,
+      maxCus:event.target.MaxCPH.value,
+      avgCookies:event.target.avgCPH.value
+    }
+
+    setStore(store); 
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="bg-green-50">
       <Head>
-        <title>Create Next App</title>
+        <title>Cookie Stand Admin</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
+      <header className="flex justify-between bg-green-500 text-black-100 p-4 items-center">
+        <h1 className="text-4xl">Cookie Stand Admin</h1>
+      </header>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <main className="">
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+        <form className="border rounded-md border-green-300 flex-col w-2/3 bg-green-300 mx-auto my-8" onSubmit={storehandeler}>
+          
+          <h1 className="text-center font-semibold text-black-100 text-2xl p-3 ">Create Cookie Stand</h1>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
+          <div className="flex mx-3 my-4">
+            <label  className="mr-2" for='location'>Location</label>
+            <input name="location" className="flex-auto bg-gray-100 "/>
+          </div>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
+          <div className="flex justify-center mx-3 my-4 mt-8">
+            <div classNameame="flex-col ">
+              <label for="MinCPH" >Minimum Customers per Hour</label>
+              <input name="MinCPH" />
+            </div>
+            <div className="flex-col">
+              <label for='MaxCPH'>Maximum Customers per Hour</label>
+              <input name="MaxCPH" />
+            </div>
+            <div className="flex-col ">
+              <label for='avgCPH'>Average Cookies per Sale</label>
+              <input name="avgCPH"/>
+            </div>
+            <button className=" bg-green-500 w-1/4">Create</button>
+          </div>
+      
+        </form>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
+        <div className="mx-auto my-8 text-black-100 text-center"> Report Table Coming Soon ... </div>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <section className="mx-auto my-8 text-black-100 text-center">
+         {JSON.stringify(store)}
+        </section>
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
+    
+      <footer className="flex justify-between bg-green-500 text-black-100 p-4 items-center">
+         <div> &copy;2021</div>
       </footer>
     </div>
   )
