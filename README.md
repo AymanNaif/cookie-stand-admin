@@ -1,4 +1,6 @@
-## [Pull Request](https://github.com/AymanNaif/cookie-stand-admin/pull/1)
+## [Pull Request - lab 37](https://github.com/AymanNaif/cookie-stand-admin/pull/1)
+
+## ## [Pull Request - lab 38](https://github.com/AymanNaif/cookie-stand-admin/pull/1)
 
 # Next.js + Tailwind CSS Example
 
