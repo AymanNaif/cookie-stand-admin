@@ -4,7 +4,7 @@
 
 ## [Pull Request - lab 39](https://github.com/AymanNaif/cookie-stand-admin/pull/4)
 
-- ### contributor: Bayan Alkhatib
+- ### contributor: Bayan Alkhatib & Ebrahim Ayyad
 
 # Next.js + Tailwind CSS Example
 
